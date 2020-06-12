@@ -13,22 +13,21 @@
     <div class="container">
       <div class="container-header">
         <h1>TODO LIST</h1>
+        <a href="/new" class="new-button">+ 新規作成</a> 
       </div>
       <div class="index-table-wrapper">
         <div class="table-head">
           <span class="id-column">ID</span>
           <span>TODO</span>
         </div>
-        <% const items = [
-          {id: 1, name: 'task1'},
-          {id: 2, name: 'task2'},
-          {id: 3, name: 'task3'},
-        ] %>
+        
         <ul class="table-body">
           <% items.forEach((item) => { %>
             <li>
-              <span class="id-column"><%= item.id %></span>
-              <span class="name-column"><%= item.name %></span>
+              <div class="item-data">
+                <span class="id-column"><%= item.id %></span>
+                <span class="name-column"><%= item.name %></span>
+              </div>
             </li>
           <% }) %>
         </ul>
