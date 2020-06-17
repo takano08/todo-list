@@ -83,7 +83,8 @@ app.post('/done/:id', (req, res) => {
   console.log(req.params.id);
   console.log('req'+JSON.stringify(req.body));
 
-  //ここで引数で渡されたitemDoneの値を反転させています。
+  //ここで引数で渡されたitemDoneの値を反転させています。未完了→完了　完了→未完了
+
   if(req.body.itemDone == 0){
     req.body.itemDone = 1;
   }else{
