@@ -308,3 +308,9 @@
   color: #80bcff;
   transition: all 0.3s ease;
 }
+
+
+/*完了タスクに取り消し線を引くためのクラス*/
+.done-task{
+  text-decoration: line-through;
+}

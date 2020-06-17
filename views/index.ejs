@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>TODO LIST</title>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/send_url.js"></script>
   </head>
   <body>
     <header>
@@ -24,10 +23,35 @@
           <% items.forEach((item) => { %>
             <li>
               <div class="item-data">
-                <label>
-                <input type="checkbox" class="checkbox">
-                <span class="name-column"><%= item.name %></span>
-              </label>
+
+
+
+                <!-- /done/:idのルーティングの対象になるformブロック-->
+                  <form action="/done/<%= item.id %>" method="post" name="updateItem">
+                    <!-- 引数にitem.doneの値を渡すためhidden要素でitemDoneプロパティを設定してitem.doneの値をvalueに設定-->
+                    <input type="hidden" name="itemDone" value="<%= item.done %>">
+                    <!-- checkboxの状態が変化したらsubmitするようにonchangeイベントを設置-->
+                    <input type="checkbox" class="checkbox" onchange="submit()">
+                    <!-- デバッグ用　item.doneの値を出力。最終的に削除して良い-->
+                    <span class="name-column">d<%= item.done %></span>
+                  </form>
+
+
+
+                <!-- /update/:idのルーティングの対象になるformブロック-->
+                  <form action="/update/<%= item.id %>" method="post">
+                    <!-- item.doneの状態によってinputに適応するcssクラスを付け替え-->
+                    <% if (item.done  == 0) { %>
+                      <!--item.done  == 0　がtrueの場合はcssクラスの追加は必要なし。-->
+                      <input type="text" name="itemName" value="<%= item.name %>" onchange="submit()">
+                    <% } else{ %>
+                      <!--item.done  == 0　がfalseの場合はcssクラス done-task を追加-->
+                      <input type="text" class="done-task" name="itemName" value="<%= item.name %>" onchange="submit()">
+                      <% } %>
+                  </form>
+
+
+
               </div>
               <div class="item-menu">
                 <form action="/delete/<%= item.id %>" method="post">

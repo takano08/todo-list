@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended: false}));
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'password',
+  password: 'pass',
   database: 'list_app'
 });
 
@@ -20,7 +20,7 @@ app.get('/index', (req, res) => {
   connection.query(
     'SELECT * FROM items',
     (error, results) => {
-      console.log(results);
+      //console.log(results);
       res.render('index.ejs', {items: results});
     }
   );
@@ -61,6 +61,9 @@ app.get('/edit/:id', (req, res) => {
 });
 
 app.post('/update/:id', (req, res) => {
+  console.log('update!');
+  console.log(req.params.id);
+  console.log('req'+JSON.stringify(req.body));
   connection.query(
     'UPDATE items SET name = ? WHERE id = ?',
     [req.body.itemName, req.params.id],
@@ -68,6 +71,36 @@ app.post('/update/:id', (req, res) => {
       res.redirect('/index');
     }
   );
+
 });
+
+
+
+
+//完了チェックボックスに変更があった場合にcallされます。
+app.post('/done/:id', (req, res) => {
+  console.log('done!');
+  console.log(req.params.id);
+  console.log('req'+JSON.stringify(req.body));
+
+  //ここで引数で渡されたitemDoneの値を反転させています。
+  if(req.body.itemDone == 0){
+    req.body.itemDone = 1;
+  }else{
+    req.body.itemDone = 0;
+  }
+
+  //SQLを発行し、doneの変更内容を更新しています。
+  connection.query(
+      'UPDATE items SET done = ? WHERE id = ?',
+      [req.body.itemDone, req.params.id],
+      (error, results) => {
+
+        res.redirect('/index');
+      }
+  );
+
+});
+
 
 app.listen(3000);
