@@ -35,6 +35,8 @@ app.post('/create', (req, res) => {
     'INSERT INTO items (name) VALUES (?)',
     [req.body.itemName],
     (error, results) => {
+      console.log("insertResults"+results);
+      console.log("insertError"+error);
       res.redirect('/index');
     }
   );
@@ -50,21 +52,42 @@ app.post('/delete/:id', (req, res) => {
   );
 });
 
-app.get('/edit/:id', (req, res) => {
-  connection.query(
-    'SELECT * FROM items WHERE id = ?',
-    [req.params.id],
-    (error, results) => {
-      res.render('edit.ejs', {item: results[0]});
-    }
-  );
-});
+
 
 app.post('/update/:id', (req, res) => {
   connection.query(
     'UPDATE items SET name = ? WHERE id = ?',
     [req.body.itemName, req.params.id],
     (error, results) => {
+      console.log(error);
+      res.redirect('/index');
+    }
+  );
+});
+
+
+
+
+app.post('/done/:id', (req, res) => {
+
+
+  console.log('done!');
+  console.log(req.params.id);
+  console.log('req'+JSON.stringify(req.body));
+
+  if(req.body.itemDone === "0"){
+    req.body.itemDone = 1;
+  }else{
+    req.body.itemDone = 0;
+  }
+
+
+  connection.query(
+    'UPDATE items SET done = ? WHERE id = ?',
+    [req.body.itemDone, req.params.id],
+    (error, results) => {
+      console.log("doneResults"+error);
+      console.log("doneError"+error);
       res.redirect('/index');
     }
   );
