@@ -93,4 +93,30 @@ app.post('/done/:id', (req, res) => {
   );
 });
 
+
+app.post('/important/:id', (req, res) => {
+
+
+  
+
+  if(req.body.itemImportant === "0"){
+    req.body.itemImportant = 1;
+  }else{
+    req.body.itemImportant = 0;
+  }
+
+
+  connection.query(
+    'UPDATE items SET important = ? WHERE id = ?',
+    [req.body.itemImportant, req.params.id],
+    (error, results) => {
+      console.log("importantResults"+error);
+      console.log("importantError"+error);
+      res.redirect('/index');
+    }
+  );
+});
+
+
+
 app.listen(3000);

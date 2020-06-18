@@ -312,3 +312,11 @@
 .done-task{
   text-decoration: line-through;
 }
+
+.item-important{
+  display: flex;
+}
+
+.important-task{
+  color:yellow;
+}

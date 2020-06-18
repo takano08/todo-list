@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>TODO LIST</title>
     <link rel="stylesheet" href="/css/style.css">
-    
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -41,9 +41,31 @@
                     
                <% } %>
                 </form>
-              
               </div>
-            
+              
+              <div class="item-important">
+                
+                <form action="/important/<%= item.id %>" method="post" >
+                <input type="hidden" name="itemImportant" value="<%= item.important %>"> 
+                <i class="material-icons-outlined" onchange="submit()">grade</i>
+
+                </form>
+
+                
+                <form action="/imprtantUpdate/<%= item.id %>" method="post">
+                  <% if(item.important == 0){ %>
+                    <i class="material-icons-outlined" 　onchange="submit()">grade</i>
+
+                 
+                  <% }else{ %>
+                    <span class="important-task">
+                      <i class="material-icons-outlined">grade</i>
+                    </span> 
+                    
+               <% } %>
+                </form>
+              </div>
+
               <div class="item-menu">
                 <form action="/delete/<%= item.id %>" method="post">
                   <input type="submit" value="削除">
