@@ -308,3 +308,7 @@
   color: #80bcff;
   transition: all 0.3s ease;
 }
+
+.done-task{
+  text-decoration: line-through;
+}

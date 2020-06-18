@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>TODO LIST</title>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/send_url.js"></script>
+    
   </head>
   <body>
     <header>
@@ -24,16 +24,31 @@
           <% items.forEach((item) => { %>
             <li>
               <div class="item-data">
-                <label>
-                <input type="checkbox" class="checkbox">
-                <span class="name-column"><%= item.name %></span>
-              </label>
+                
+                <form action="/done/<%= item.id %>" method="post" >
+                <input type="hidden" name="itemDone" value="<%= item.done %>"> 
+                <input type="checkbox" class="checkbox" onchange="submit()">
+
+                </form>
+
+                
+                <form action="/update/<%= item.id %>" method="post">
+                  <% if(item.done == 0){ %>
+                    <input type="text" name="itemName" value="<%= item.name %>" onchange="submit()">
+                 
+                  <% }else{ %>
+                    <span class="done-task"><%= item.name %></span> 
+                    
+               <% } %>
+                </form>
+              
               </div>
+            
               <div class="item-menu">
                 <form action="/delete/<%= item.id %>" method="post">
                   <input type="submit" value="削除">
                 </form>
-                <a href="/edit/<%= item.id %>">編集</a>
+                
               </div>
             </li>
           <% }) %>
