@@ -317,6 +317,13 @@
   display: flex;
 }
 
-.important-task{
-  color:yellow;
+.f-star-buttom{
+  font-size: 16px;
+  background-color: white;
+}
+
+.star-button{
+  color:blue;
+  font-size: 16px;
+  background-color: white;
 }

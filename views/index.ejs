@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>TODO LIST</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+    
   </head>
   <body>
     <header>
@@ -26,9 +26,13 @@
               <div class="item-data">
                 
                 <form action="/done/<%= item.id %>" method="post" >
-                <input type="hidden" name="itemDone" value="<%= item.done %>"> 
+                <input type="hidden" name="itemDone" value="<%= item.done %>">
+                <% if(item.done == 0){ %>
                 <input type="checkbox" class="checkbox" onchange="submit()">
+                <% }else{ %>
+                  <input type="checkbox" class="checkbox" onchange="submit()" checked>
 
+               <% } %>
                 </form>
 
                 
@@ -47,20 +51,13 @@
                 
                 <form action="/important/<%= item.id %>" method="post" >
                 <input type="hidden" name="itemImportant" value="<%= item.important %>"> 
-                <i class="material-icons-outlined" onchange="submit()">grade</i>
-
-                </form>
-
                 
-                <form action="/imprtantUpdate/<%= item.id %>" method="post">
                   <% if(item.important == 0){ %>
-                    <i class="material-icons-outlined" 　onchange="submit()">grade</i>
+                    <input class="f-star-buttom" type="button"  value="☆" onclick="submit()">
 
                  
                   <% }else{ %>
-                    <span class="important-task">
-                      <i class="material-icons-outlined">grade</i>
-                    </span> 
+                    <input class="star-button" type="button"  value="★" onclick="submit()">
                     
                <% } %>
                 </form>
