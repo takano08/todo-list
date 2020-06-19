@@ -7,17 +7,13 @@ node.js v11.6.0
 npm  6.5.0-next.0
 mysql Ver 14.14 Distrib 5.7.29
 
-＊＊mysql
+mysql＊＊
 
   host: 'localhost',
   user: 'root',
   password: 'password',
   database: 'list_app'
   
-神馬くんと同じ
-
-今回doneDate,firstTime datetimeは関係ない。
-
 create table items
 (
     id        int auto_increment
@@ -28,6 +24,10 @@ create table items
     important tinyint(1) default 0 null,
     firstTime datetime   default CURRENT_TIMESTAMP
 );
+
+注）神馬くんと同仕様
+
+今回doneDate,firstTime datetimeは関係ない。
 
 <実行順序>
 
