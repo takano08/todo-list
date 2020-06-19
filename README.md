@@ -15,7 +15,9 @@ mysql Ver 14.14 Distrib 5.7.29
   database: 'list_app'
   
 神馬くんと同じ
+
 今回doneDate,firstTime datetimeは関係ない。
+
 create table items
 (
     id        int auto_increment
@@ -30,12 +32,15 @@ create table items
 <実行順序>
 
 1.Node.jsインストール
+
   公式サイトから推奨版をダウンロード。
+  
   node -v
   npm -v
   バージョンが表示されればOK
 
 2.MySQLインストール
+
  brew install mysql@5.7
 
  バージョン確認
@@ -49,6 +54,7 @@ create table items
  npm install mysql
 
 4.データベースとテーブルを作成
+
 上記＊＊参照
 
  
