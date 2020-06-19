@@ -1,22 +1,17 @@
 # todo-list
-研修用課題（Todoリスト）
-
-<実行環境>
-
+## 研修用課題（Todoリスト）
+実行環境
+``` 
 node.js v11.6.0
 npm  6.5.0-next.0
 mysql Ver 14.14 Distrib 5.7.29
+```
 
-＊＊mysql
-
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'list_app'
+[DB接続情報](https://github.com/takano08/todo-list/blob/98a499b84c8344e86e610b7a1f38e53978b99369/app.js#L9-L12)
+local環境で稼働させる訓練用リポジトリの為 接続情報も記載しています。
   
-神馬くんと同じ
-
-今回doneDate,firstTime datetimeは関係ない。
+```
+CREATE DATABASE list_app;
 
 create table items
 (
@@ -29,35 +24,25 @@ create table items
     firstTime datetime   default CURRENT_TIMESTAMP
 );
 
-<実行順序>
+```
 
-1.Node.jsインストール
+*同一の課題を検証してもらう前提のため以下のリポジトリとテーブル定義を共有しています。
 
-  公式サイトから推奨版をダウンロード。
-  
-  node -v
-  npm -v
-  バージョンが表示されればOK
+https://github.com/jin35314031/Subject-todolist
 
-2.MySQLインストール
+本リポジトリのプログラムではdoneDate,firstTimeカラムは使用していません。
 
- brew install mysql@5.7
 
- バージョン確認
- mysql --version
- 結果　
- mysql  Ver 14.14 Distrib 5.7.29
+#### 事前準備
+- node.js / npm インストール 
+- スキーマを作成
 
-3.Node.jsアプリケーションとMySQLを接続
- 
- mysqlパッケージのインストール
- npm install mysql
 
-4.データベースとテーブルを作成
+#### 実行手順
 
-上記＊＊参照
+- git clone https://github.com/takano08/todo-list.git
+- cd todo-list
+- npm install
+- node app.js
 
- 
-5.node app.js
-
-ブラウザを開いて「localhost:3000」というURLにアクセスします。
+APP起動後 [localhost:3000にアクセス](http://localhost:3000/)
