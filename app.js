@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
 });
 
 app.get('/', (req, res) => {
-  res.render('todo.ejs');
+  res.redirect('/index');
 });
 
 app.get('/index', (req, res) => {
