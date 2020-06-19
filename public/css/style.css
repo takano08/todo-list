@@ -312,3 +312,18 @@
 .done-task{
   text-decoration: line-through;
 }
+
+.item-important{
+  display: flex;
+}
+
+.f-star-buttom{
+  font-size: 16px;
+  background-color: white;
+}
+
+.star-button{
+  color:blue;
+  font-size: 16px;
+  background-color: white;
+}

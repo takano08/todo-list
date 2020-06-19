@@ -26,9 +26,13 @@
               <div class="item-data">
                 
                 <form action="/done/<%= item.id %>" method="post" >
-                <input type="hidden" name="itemDone" value="<%= item.done %>"> 
+                <input type="hidden" name="itemDone" value="<%= item.done %>">
+                <% if(item.done == 0){ %>
                 <input type="checkbox" class="checkbox" onchange="submit()">
+                <% }else{ %>
+                  <input type="checkbox" class="checkbox" onchange="submit()" checked>
 
+               <% } %>
                 </form>
 
                 
@@ -41,9 +45,24 @@
                     
                <% } %>
                 </form>
-              
               </div>
-            
+              
+              <div class="item-important">
+                
+                <form action="/important/<%= item.id %>" method="post" >
+                <input type="hidden" name="itemImportant" value="<%= item.important %>"> 
+                
+                  <% if(item.important == 0){ %>
+                    <input class="f-star-buttom" type="button"  value="☆" onclick="submit()">
+
+                 
+                  <% }else{ %>
+                    <input class="star-button" type="button"  value="★" onclick="submit()">
+                    
+               <% } %>
+                </form>
+              </div>
+
               <div class="item-menu">
                 <form action="/delete/<%= item.id %>" method="post">
                   <input type="submit" value="削除">
