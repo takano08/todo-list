@@ -34,8 +34,8 @@ https://github.com/jin35314031/Subject-todolist
 
 
 #### 事前準備
-- node.js / npm インストール 
-- スキーマを作成
+- node.js インストール 
+- DBを作成
 
 
 #### 実行手順
