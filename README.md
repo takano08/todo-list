@@ -10,12 +10,15 @@ mysql Ver 14.14 Distrib 5.7.29
 
 ```
 
-mysql＊＊
+<DB接続情報>
 
+```
   host: 'localhost',
   user: 'root',
   password: 'password',
   database: 'list_app'
+```
+
 
 ```
 
@@ -32,39 +35,21 @@ create table items
 
 ```
 
-注）神馬くんと同仕様
+*同一の課題を検証してもらう前提のため以下のリポジトリとテーブル定義を共有しています。
 
-今回doneDate,firstTime datetimeは関係ない。
+https://github.com/jin35314031/Subject-todolist
 
-<実行順序>
+本リポジトリのプログラムでは、doneDate,firstTime datetimeは使用しません。
 
-1.Node.jsインストール
+#### 事前準備
+- node.js インストール 
+- DBを作成
 
-  公式サイトから推奨版をダウンロード。
-  
-  node -v
-  npm -v
-  バージョンが表示されればOK
+#### 実行手順
 
-2.MySQLインストール
+- git clone https://github.com/takano08/todo-list.git
+- cd todo-list
+- npm install
+- node app.js
 
- brew install mysql@5.7
-
- バージョン確認
- mysql --version
- 結果　
- mysql  Ver 14.14 Distrib 5.7.29
-
-3.Node.jsアプリケーションとMySQLを接続
- 
- mysqlパッケージのインストール
- npm install mysql
-
-4.データベースとテーブルを作成
-
-上記＊＊参照
-
- 
-5.node app.js
-
-ブラウザを開いて「localhost:3000」というURLにアクセスします。
+APP起動後、[localhost:3000にアクセス](http://localhost:3000/)
