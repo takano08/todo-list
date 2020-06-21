@@ -1,11 +1,14 @@
 # todo-list
-研修用課題（Todoリスト）
+## 研修用課題（Todoリスト）
 
 <実行環境>
 
+```
 node.js v11.6.0
 npm  6.5.0-next.0
 mysql Ver 14.14 Distrib 5.7.29
+
+```
 
 mysql＊＊
 
@@ -13,7 +16,9 @@ mysql＊＊
   user: 'root',
   password: 'password',
   database: 'list_app'
-  
+
+```
+
 create table items
 (
     id        int auto_increment
@@ -24,6 +29,8 @@ create table items
     important tinyint(1) default 0 null,
     firstTime datetime   default CURRENT_TIMESTAMP
 );
+
+```
 
 注）神馬くんと同仕様
 
