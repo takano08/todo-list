@@ -1,7 +1,7 @@
 # todo-list
 ## 研修用課題（Todoリスト）
 
-<実行環境>
+実行環境
 
 ```
 node.js v11.6.0
@@ -10,7 +10,8 @@ mysql Ver 14.14 Distrib 5.7.29
 
 ```
 
-<DB接続情報>
+[DB接続情報](https://github.com/takano08/todo-list/blob/98a499b84c8344e86e610b7a1f38e53978b99369/app.js#L9-L12)
+local環境で稼働させる訓練用リポジトリの為 接続情報も記載しています。
 
 ```
   host: 'localhost',
